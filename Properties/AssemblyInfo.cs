@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("DinamicTreeview")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This is a Fully Dinamic treeview")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("DinamicTreeview")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("GPL V3")]
+[assembly: AssemblyTrademark("Arash Haghighat")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

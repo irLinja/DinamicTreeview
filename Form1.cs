@@ -14,5 +14,15 @@ namespace DinamicTreeview
         {
             InitializeComponent();
         }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            PnlEdit.Visible = true;
+        }
+
+        private void BtnDone_Click(object sender, EventArgs e)
+        {
+            PnlEdit.Visible = false;
+        }
     }
 }

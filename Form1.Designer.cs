@@ -1,6 +1,6 @@
 ﻿namespace DinamicTreeview
 {
-    partial class Form1
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.PnlTree = new System.Windows.Forms.Panel();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.Tview = new System.Windows.Forms.TreeView();
             this.BtnEdit = new System.Windows.Forms.Button();
             this.PnlEdit = new System.Windows.Forms.Panel();
+            this.BtnNodeEdit = new System.Windows.Forms.Button();
             this.BtnDone = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnAdChiled = new System.Windows.Forms.Button();
@@ -42,20 +44,21 @@
             // 
             // PnlTree
             // 
-            this.PnlTree.Controls.Add(this.treeView1);
+            this.PnlTree.Controls.Add(this.Tview);
             this.PnlTree.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnlTree.Location = new System.Drawing.Point(0, 0);
             this.PnlTree.Name = "PnlTree";
             this.PnlTree.Size = new System.Drawing.Size(566, 398);
             this.PnlTree.TabIndex = 0;
             // 
-            // treeView1
+            // Tview
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(566, 398);
-            this.treeView1.TabIndex = 0;
+            this.Tview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tview.LabelEdit = true;
+            this.Tview.Location = new System.Drawing.Point(0, 0);
+            this.Tview.Name = "Tview";
+            this.Tview.Size = new System.Drawing.Size(566, 398);
+            this.Tview.TabIndex = 0;
             // 
             // BtnEdit
             // 
@@ -69,6 +72,7 @@
             // 
             // PnlEdit
             // 
+            this.PnlEdit.Controls.Add(this.BtnNodeEdit);
             this.PnlEdit.Controls.Add(this.BtnDone);
             this.PnlEdit.Controls.Add(this.BtnDelete);
             this.PnlEdit.Controls.Add(this.BtnAdChiled);
@@ -80,9 +84,19 @@
             this.PnlEdit.TabIndex = 2;
             this.PnlEdit.Visible = false;
             // 
+            // BtnNodeEdit
+            // 
+            this.BtnNodeEdit.Location = new System.Drawing.Point(165, 1);
+            this.BtnNodeEdit.Name = "BtnNodeEdit";
+            this.BtnNodeEdit.Size = new System.Drawing.Size(75, 23);
+            this.BtnNodeEdit.TabIndex = 4;
+            this.BtnNodeEdit.Text = "Edit";
+            this.BtnNodeEdit.UseVisualStyleBackColor = true;
+            this.BtnNodeEdit.Click += new System.EventHandler(this.BtnNodeEdit_Click);
+            // 
             // BtnDone
             // 
-            this.BtnDone.Location = new System.Drawing.Point(488, 3);
+            this.BtnDone.Location = new System.Drawing.Point(488, 1);
             this.BtnDone.Name = "BtnDone";
             this.BtnDone.Size = new System.Drawing.Size(75, 23);
             this.BtnDone.TabIndex = 3;
@@ -92,32 +106,35 @@
             // 
             // BtnDelete
             // 
-            this.BtnDelete.Location = new System.Drawing.Point(165, 3);
+            this.BtnDelete.Location = new System.Drawing.Point(246, 1);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 23);
             this.BtnDelete.TabIndex = 2;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnAdChiled
             // 
-            this.BtnAdChiled.Location = new System.Drawing.Point(84, 3);
+            this.BtnAdChiled.Location = new System.Drawing.Point(84, 1);
             this.BtnAdChiled.Name = "BtnAdChiled";
             this.BtnAdChiled.Size = new System.Drawing.Size(75, 23);
             this.BtnAdChiled.TabIndex = 1;
             this.BtnAdChiled.Text = "Add Chiled";
             this.BtnAdChiled.UseVisualStyleBackColor = true;
+            this.BtnAdChiled.Click += new System.EventHandler(this.BtnAdChiled_Click);
             // 
             // BtnAdRoot
             // 
-            this.BtnAdRoot.Location = new System.Drawing.Point(3, 3);
+            this.BtnAdRoot.Location = new System.Drawing.Point(3, 1);
             this.BtnAdRoot.Name = "BtnAdRoot";
             this.BtnAdRoot.Size = new System.Drawing.Size(75, 23);
             this.BtnAdRoot.TabIndex = 0;
             this.BtnAdRoot.Text = "Add root";
             this.BtnAdRoot.UseVisualStyleBackColor = true;
+            this.BtnAdRoot.Click += new System.EventHandler(this.BtnAdRoot_Click);
             // 
-            // Form1
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -125,8 +142,11 @@
             this.Controls.Add(this.PnlEdit);
             this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.PnlTree);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "FrmMain";
+            this.Text = "Dinamic Tree";
             this.PnlTree.ResumeLayout(false);
             this.PnlEdit.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -136,13 +156,14 @@
         #endregion
 
         private System.Windows.Forms.Panel PnlTree;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView Tview;
         private System.Windows.Forms.Button BtnEdit;
         private System.Windows.Forms.Panel PnlEdit;
         private System.Windows.Forms.Button BtnDone;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnAdChiled;
         private System.Windows.Forms.Button BtnAdRoot;
+        private System.Windows.Forms.Button BtnNodeEdit;
     }
 }
 

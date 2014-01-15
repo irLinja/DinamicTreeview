@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace DinamicTreeview
 {
@@ -13,6 +14,13 @@ namespace DinamicTreeview
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private String FilePath = Application.StartupPath + @"\TreeData.dat";
+        
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            LoadAndSave.LoadTree(Tview, FilePath);
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -56,6 +64,11 @@ namespace DinamicTreeview
                 Tview.SelectedNode.BeginEdit();
             else
                 MessageBox.Show("Please select a node to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            LoadAndSave.SaveTree(Tview, FilePath);
         }
     }
 }

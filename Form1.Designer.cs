@@ -147,6 +147,8 @@
             this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.Text = "Dinamic Tree";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.PnlTree.ResumeLayout(false);
             this.PnlEdit.ResumeLayout(false);
             this.ResumeLayout(false);
